@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd" >
+<!-- 
+Person p = new Person();
+p.setName("호날두");
+p.setAge(25);
+ -->       
+	<bean id="p" class="spring.dto.Person">
+		<property name="name" value="호날두"/>
+		<property name="age" value="25"/>
+	</bean>
+	<bean id="w" class="spring.dto.Weather">
+		<property name="date" value="2017-06-01"/>
+		<property name="loc" value="Gangnam, Seoul"/>
+		<property name="info" value="Once in the morning rain"/>	
+	</bean>
+	<bean id="woman" class="spring.dto.Woman">
+		<constructor-arg value="Amanda Seyfried"/> 
+		<constructor-arg value="32"/> 
+	</bean>
+	<bean id="man" class="spring.dto.Man">
+		<property name="name" value="Ronaldo"/>
+		<property name="loc"  value="NY, America"/>
+		<property name="woman" ref="woman"/>
+	</bean>
+	<bean id="prod" class="spring.dto.Product">
+		<constructor-arg value="오이"/>
+		<constructor-arg value="3000"/>
+	</bean>
+	<bean id="prod01" class="spring.dto.Product">
+		<constructor-arg value="사과"/>
+		<constructor-arg value="1000"/>
+	</bean>
+	<bean id="prod02" class="spring.dto.Product">
+		<constructor-arg value="딸기"/>
+		<constructor-arg value="2000"/>
+	</bean>
+	<bean id="prod03" class="spring.dto.Product">
+		<constructor-arg value="바나나"/>
+		<constructor-arg value="4000"/>
+	</bean>			
+	<bean id="mart" class="spring.dto.Mart">
+		<property name="martName" value="짱짱"/>
+		<property name="prod" ref="prod"/>
+		<property name="prodList">
+			<list>
+				<ref bean="prod01"/>
+				<ref bean="prod02"/>
+				<ref bean="prod03"/>
+			</list>
+		</property>
+	</bean>
+</beans>

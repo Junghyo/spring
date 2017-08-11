@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spring.i01_calendar.repository.CalendarDAO">
+	<resultMap type="calendar" id="calendarResult">
+		<!-- SQL 컬럼명: BEGIN, JAVA 컬럼명 : start -->
+		<result column="begin" property="start"/>
+	</resultMap>
+	<select id="calendarList"  resultMap="calendarResult">
+		SELECT * FROM CALENDAR
+	</select>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="spring.c01_database.repository.A03_MembersRep">
+	<resultMap type="mem" id="memMap"/>
+	<select id="memList" resultMap="memMap" parameterType="mem">
+		SELECT * FROM MEMBERS WHERE ID LIKE '%'||#{id}||'%'
+	</select>
+	<select id="memInfo" resultType="mem" parameterType="string">
+		SELECT * FROM MEMBERS WHERE ID=#{id}
+	</select>
+	<update id="memUpdate" parameterType="mem">
+		UPDATE MEMBERS SET PWD=#{pwd},
+						NAME=#{name},
+						POINT=#{point} 
+						WHERE ID=#{id}
+	</update>
+</mapper>

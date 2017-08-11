@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.0.xsd" >
+<!-- 
+	Woman woman = new Woman("홍길순", 25);
+	woman.setLoc("Sonpa, Seoul");
+	Man m = new Man();
+	m.setName("4번타자");
+	m.setLoc("London, England");
+	m.setWoman(woman);
+
+
+ -->       
+	<bean id="woman" class="spring.dto.Woman" c:name="Emma Stone" c:age="25" p:loc="Songpa, Seoul"/>
+	<!-- <bean id="m" class="spring.dto.Man" p:name="4번타자" p:loc="London, England" p:woman-ref="w"/> -->
+	<bean id="m" class="spring.dto.Man" p:name="4번타자" p:loc="London, England" autowire="byName"/>
+	<!-- 
+	autowire 속성
+	1) byName은 해당 메서드의 setXXX에 property가 선언된 클래스의 id값과 같을 때 자동으로 할당
+	 -->
+</beans>
